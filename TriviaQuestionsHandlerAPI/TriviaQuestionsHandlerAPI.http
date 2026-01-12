@@ -1,0 +1,11 @@
+﻿@TriviaQuestionsHandlerAPI_HostAddress = https://localhost:7114
+
+@answer=string
+POST {{TriviaQuestionsHandlerAPI_HostAddress}}/CheckAnswer?Answer={{answer}}
+Content-Type: application/json
+
+{
+  "answer":"Two-Story Building"
+}
+
+###

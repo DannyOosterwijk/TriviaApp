@@ -1,0 +1,29 @@
+﻿@model APIResponse
+
+<div class="headercontainer" style="height:10vh;">
+	<div style="height:100%">
+		<h2 style="text-align:center">Correct: @Model.QuestionsCorrect</h2>
+	</div>
+	<div style="height:100%">
+		<h2 style="text-align:center">Incorrect: @(Model.CurrentQuestion - Model.QuestionsCorrect)</h2>
+	</div>
+</div>
+
+<div class="questioncontainer" style="height:15vh;">
+	<h1 style="text-align:center">@Model.QuestionResult</h1>
+	<h3 style="text-align:center">@Model.CurrentQuestion / @Model.QuestionAmount</h3>
+</div>
+
+<div class="answerscontainer" style="height:60vh;">
+	<div style="height:200px;width:100%;margin-bottom:20px">
+		@if(Model.CurrentQuestion < Model.QuestionAmount)
+		{
+			<a asp-controller="Trivia" asp-action="Trivia" class="btn btn-primary align-content-center" style="height:200px;width:100%;">Continue</a>
+		}
+		else
+		{
+			<a asp-controller="Trivia" asp-action="TriviaFinished" class="btn btn-primary align-content-center" style="height:200px;width:100%;">Finish</a>
+		}
+
+	</div>
+</div>

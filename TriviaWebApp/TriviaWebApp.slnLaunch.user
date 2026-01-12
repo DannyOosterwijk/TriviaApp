@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "..\\TriviaQuestionsHandlerAPI\\TriviaQuestionsHandlerAPI.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "TriviaWebApp.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

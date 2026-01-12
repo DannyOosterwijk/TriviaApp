@@ -1,0 +1,18 @@
+﻿<div>
+	<h1 style="text-align:center">Welcome to Trivia</h1>
+</div>
+<div style="text-align:center">
+	<h3 style="text-align:center">Choose difficulty:</h3>
+	<div>
+		<a asp-controller="Trivia" asp-action="StartTrivia" asp-route-difficulty="Random" class="btn btn-primary align-content-center" style="height:50px;width:100px;margin-bottom:5px">Random</a>
+	</div>
+	<div>
+		<a asp-controller="Trivia" asp-action="StartTrivia" asp-route-difficulty="Easy" class="btn btn-primary align-content-center" style="height:50px;width:100px;margin-bottom:5px">Easy</a>
+	</div>
+	<div>
+		<a asp-controller="Trivia" asp-action="StartTrivia" asp-route-difficulty="Medium" class="btn btn-primary align-content-center" style="height:50px;width:100px;margin-bottom:5px">Medium</a>
+	</div>
+	<div>
+		<a asp-controller="Trivia" asp-action="StartTrivia" asp-route-difficulty="Hard" class="btn btn-primary align-content-center" style="height:50px;width:100px;margin-bottom:5px">Hard</a>
+	</div>
+</div>
