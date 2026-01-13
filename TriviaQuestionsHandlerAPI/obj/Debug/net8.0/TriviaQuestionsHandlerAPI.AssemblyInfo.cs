@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TriviaQuestionsHandlerAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c9bc5769e410a8075e8fcf75653c0b34fcbb5d44")]
 [assembly: System.Reflection.AssemblyProductAttribute("TriviaQuestionsHandlerAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TriviaQuestionsHandlerAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

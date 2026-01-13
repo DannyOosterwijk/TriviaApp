@@ -1,6 +1,14 @@
 ﻿@model string
+<body>
+	<div>
+		<h2>Error:</h2>
+	</div>
 
-<h2>Error: @Model</h2>
-<div style="height:200px;width:100%;margin-bottom:20px">
-	<a asp-controller="Trivia" asp-action="Index" class="btn btn-primary align-content-center" style="height:200px;width:100%;">Go Back to Trivia</a>
-</div>
+	<div style="border:2px solid darkslategrey;height:50vh; width:75%; margin-bottom:20px">
+		<h2 style="overflow:auto">@Model</h2>
+	</div>
+
+	<div>
+		<a asp-controller="Trivia" asp-action="Index" class="btn TriviaButton" style="height:150px; width:300px;">Go Back to Trivia</a>
+	</div>
+</body>

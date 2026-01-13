@@ -1,25 +1,27 @@
 ﻿@model Question
-
-<div class="headercontainer" style="height:10vh;">
-	<div style="height:100%">
-		<h2 style="text-align:center">@Model.category</h2>
+<body>
+	<div style="text-align:center;height:10vh;margin-bottom:15px">
+		<div style="margin-bottom:2px">
+			<h2 style="text-align:center">@Model.category</h2>
+		</div>
+		<div style ="margin-bottom:2px>
+			<h3 style="text-align:center">@Model.difficulty</h3>
+		</div>
 	</div>
-	<div style="height:100%">
-		<h2 style="text-align:center">@Model.difficulty</h2>
+
+	<div class="questioncontainer" style="height:15vh;">
+		<h1 style="text-align:center;font-size:2em">@Model.question</h1>
 	</div>
-</div>
 
-<div class="questioncontainer" style="height:15vh;">
-	<h1 style="text-align:center">@Model.question</h1>
-</div>
+	<div class="answerscontainer" style="height:60vh;">
+		<ul>
+			@foreach (var answer in Model.answers)
+			{
+				<div>
+					<a asp-controller="Trivia" asp-action="CheckAnswer" asp-route-answer=@answer class="btn TriviaButton answerbutton">@answer</a>
+				</div>
+			}
+		</ul>
+	</div>
+</body>
 
-<div class="answerscontainer" style="height:60vh;">
-	<ul>
-		@foreach (var answer in Model.answers)
-		{
-			<div style="height:200px;width:100%;margin-bottom:20px">
-				<a asp-controller="Trivia" asp-action="CheckAnswer" asp-route-answer=@answer class="btn btn-primary align-content-center" style="height:200px;width:100%;">@answer</a>
-			</div>
-		}
-	</ul>
-</div>

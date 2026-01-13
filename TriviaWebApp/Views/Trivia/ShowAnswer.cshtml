@@ -18,11 +18,11 @@
 	<div style="height:200px;width:100%;margin-bottom:20px">
 		@if(Model.CurrentQuestion < Model.QuestionAmount)
 		{
-			<a asp-controller="Trivia" asp-action="Trivia" class="btn btn-primary align-content-center" style="height:200px;width:100%;">Continue</a>
+			<a asp-controller="Trivia" asp-action="Trivia" class="btn TriviaButton answerbutton" style="height:150px;width:300px;">Continue</a>
 		}
 		else
 		{
-			<a asp-controller="Trivia" asp-action="TriviaFinished" class="btn btn-primary align-content-center" style="height:200px;width:100%;">Finish</a>
+			<a asp-controller="Trivia" asp-action="TriviaFinished" class="btn TriviaButton answerbutton" style="height:150px;width:300px;">Finish</a>
 		}
 
 	</div>

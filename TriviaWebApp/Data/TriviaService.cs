@@ -24,7 +24,7 @@ namespace TriviaWebApp.Data
             }
             else
             {
-                throw new Exception("Could not reset Trivia");
+                throw new Exception("Could not start Trivia, Try again.");
             }
         }
 

@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "LpPtturlDUU=",
+  "dgSpecHash": "vzo8V7xXOAg=",
   "success": true,
-  "projectFilePath": "D:\\GitProjects\\Software\\DotnetCore\\TriviaApp\\TriviaWebApp\\TriviaWebApp.csproj",
+  "projectFilePath": "D:\\SoftwareDevelopment\\TriviaApp\\TriviaWebApp\\TriviaWebApp.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Danny\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\8.0.22\\microsoft.aspnetcore.jsonpatch.8.0.22.nupkg.sha512",
-    "C:\\Users\\Danny\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\8.0.22\\microsoft.aspnetcore.mvc.newtonsoftjson.8.0.22.nupkg.sha512",
-    "C:\\Users\\Danny\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
-    "C:\\Users\\Danny\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
-    "C:\\Users\\Danny\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512"
+    "C:\\Users\\danny\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\8.0.22\\microsoft.aspnetcore.jsonpatch.8.0.22.nupkg.sha512",
+    "C:\\Users\\danny\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\8.0.22\\microsoft.aspnetcore.mvc.newtonsoftjson.8.0.22.nupkg.sha512",
+    "C:\\Users\\danny\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\danny\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\danny\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512"
   ],
   "logs": []
 }
