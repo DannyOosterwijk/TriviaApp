@@ -51,7 +51,7 @@
     "Parameters": [
       {
         "Name": "req",
-        "Type": "TriviaQuestionsHandlerAPI.CheckAnswerRequest",
+        "Type": "TriviaQuestionsHandlerAPI.ResetTriviaRequest",
         "IsRequired": true
       }
     ],

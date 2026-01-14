@@ -5,63 +5,62 @@ using TriviaQuestionsHandlerAPI;
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
+//Global variables
 string url = URLGenerator.GenerateURL();
 HttpClient client = new HttpClient();
+
 string response = await client.GetStringAsync(url);
-var data = JsonConvert.DeserializeObject<OpenTriviaResponse>(response);
-TriviaQuestion CurrentQuestion;
+OpenTriviaResponse triviaResponse = JsonConvert.DeserializeObject<OpenTriviaResponse>(response);
+
+OpenTriviaAPIQuestion CurrentQuestion;
 int CurrentQuestionIndex = 0;
 int correctQuestions = 0;
 
-
-app.MapPost("/ResetTrivia", async (CheckAnswerRequest req) =>
+//Generate a new URl with the chosen difficulty, and get a new list of questions
+app.MapPost("/ResetTrivia", async (ResetTriviaRequest req) =>
 {
-    URLGenerator.Difficulty difficulty;
-    switch (req.Answer)
-    {
-        case "Easy":
-            difficulty = URLGenerator.Difficulty.easy; 
-            break;
-        case "Medium":
-            difficulty = URLGenerator.Difficulty.medium;
-            break;
-        case "Hard":
-            difficulty = URLGenerator.Difficulty.hard;
-            break;
-        default:
-            difficulty = URLGenerator.Difficulty.any;
-            break;
-    }
+    //Generate a string which includes the parameters for the open trivia api
+    response = await client.GetStringAsync(URLGenerator.GenerateURL(difficulty:URLGenerator.StringToDifficulty(req.Difficulty)));
+    //get a new list of questions from the open trivia api
+    triviaResponse = JsonConvert.DeserializeObject<OpenTriviaResponse>(response);
 
-    response = await client.GetStringAsync(URLGenerator.GenerateURL(difficulty:difficulty));
-    data = JsonConvert.DeserializeObject<OpenTriviaResponse>(response);
+    //set default values to keep track of which question the player is on
     CurrentQuestionIndex = 0;
     correctQuestions = 0;
-    return Results.Ok(data.response_code);
+
+    return Results.Ok(triviaResponse.response_code);
 });
 
+//Get the current question from the list of questions
 app.MapGet("/GetQuestion", () =>
 {
-    if (data != null){
-        if (CurrentQuestionIndex >= data.results.Length)
+    if (triviaResponse != null){
+        //If the player goes past the final question, return an empy question
+        if (CurrentQuestionIndex >= triviaResponse.results.Length)
         {
-            return JsonConvert.SerializeObject(new Question());
+            return JsonConvert.SerializeObject(new TriviaQuestion());
         }
-        CurrentQuestion = data.results[CurrentQuestionIndex];
-        Question question = new Question(CurrentQuestion);
+
+        //store the new current question, and randomly combine the correct and incorrect answers 
+        //(combined in the Trivia Question constructor)
+        CurrentQuestion = triviaResponse.results[CurrentQuestionIndex];
+        TriviaQuestion question = new TriviaQuestion(CurrentQuestion);
 
         return JsonConvert.SerializeObject(question);
     }
     return "Error: Data Not Valid";
 });
 
-
+//Check if the answer submitted is ccorrect for the current question.
+//returns if the answer is correct and statistics of the current list of questions
 app.MapPost("/CheckAnswer", (CheckAnswerRequest req) =>
 {
     APIResponse response = new APIResponse();
-    if(CurrentQuestionIndex < data.results.Length)
+    //check if the current index is inside of the list of questions
+    if(CurrentQuestionIndex < triviaResponse.results.Length)
     {
-        if (req.Answer.Equals(data.results[CurrentQuestionIndex].correct_answer, StringComparison.OrdinalIgnoreCase))
+        //compare the chosen answer with the correct answer of the current question
+        if (req.Answer.Equals(triviaResponse.results[CurrentQuestionIndex].correct_answer, StringComparison.OrdinalIgnoreCase))
         {
             response.QuestionResult = "Correct";
             correctQuestions++;
@@ -76,8 +75,9 @@ app.MapPost("/CheckAnswer", (CheckAnswerRequest req) =>
         response.QuestionResult = "TriviaFinished";
     }
 
+    //set statistic of the current list of questions
     response.QuestionsCorrect = correctQuestions;
-    response.QuestionAmount = data.results.Length;
+    response.QuestionAmount = triviaResponse.results.Length;
     response.CurrentQuestion = CurrentQuestionIndex + 1;
 
     CurrentQuestionIndex++;

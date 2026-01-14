@@ -1,24 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TriviaWebApp.Data;
 using TriviaWebApp.Models;
-using System.Net.Http.Headers;
 
 namespace TriviaWebApp.Controllers
 {
     public class TriviaController : Controller
     {
-        private Question currentQuestion;
+        //Create and bind the trivia interface
         private ITriviaService _triviaService;
         public TriviaController(ITriviaService triviaService)
         {
             _triviaService = triviaService;
         }
 
+        //Main page where the player decided the difficulty they want to play
         public async Task<IActionResult> Index()
         {
             return View();
         }
 
+        //Tries to start the Trivia by sending the desired difficulty to the Trivia API
         public async Task<IActionResult> StartTrivia(string difficulty)
         {
             try
@@ -32,8 +33,11 @@ namespace TriviaWebApp.Controllers
             return RedirectToAction("Trivia");
         }
 
+        //Trivia page where the trivia question is shown and the player selects an answer
         public async Task<IActionResult> Trivia()
         {
+            APIQuestion currentQuestion;
+
             try
             {
                 currentQuestion = await _triviaService.GetQuestion();
@@ -49,6 +53,7 @@ namespace TriviaWebApp.Controllers
             return View(currentQuestion);
         }
 
+        //Check if the players answer is correct and move to Show answer page
         public async Task<IActionResult> CheckAnswer (string answer)
         {
             try
@@ -62,16 +67,19 @@ namespace TriviaWebApp.Controllers
             }
         }
 
+        //Show if the player's answer was correct and hoow manny questions they have wrong and correct
         public IActionResult ShowAnswer(APIResponse answer)
         {
             return View(answer);
         }
 
+        //Page for handling and displaying errors
         public IActionResult ErrorPage(string error)
         {
             return View((object)error);
         }
 
+        //Final page of the trivia. shows the final score the player has recieved
         public async Task<IActionResult> TriviaFinished()
         {
             try

@@ -2,6 +2,8 @@
 {
     public static class URLGenerator
     {
+
+        //assemble an URL for the Open trivia API with the chosen parameters
         public static string GenerateURL(Category category = Category.Any, Difficulty difficulty = Difficulty.any, Type type = Type.any, int amount = 10)
         {
             string url = $"https://opentdb.com/api.php?amount={amount}";
@@ -24,6 +26,20 @@
             return url;
         }
 
+        public static Difficulty StringToDifficulty (string difficulty)
+        {
+            switch (difficulty)
+            {
+                case "Easy":
+                    return URLGenerator.Difficulty.easy;
+                case "Medium":
+                    return URLGenerator.Difficulty.medium;
+                case "Hard":
+                    return URLGenerator.Difficulty.hard;
+                default:
+                    return URLGenerator.Difficulty.any;
+            }
+        }
         public enum Category
         {
             Any = 0,

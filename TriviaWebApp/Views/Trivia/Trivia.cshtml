@@ -1,4 +1,6 @@
-﻿@model Question
+﻿@using System.Web;
+
+@model APIQuestion
 <body>
 	<div style="text-align:center;height:10vh;margin-bottom:15px">
 		<div style="margin-bottom:2px">
@@ -10,7 +12,7 @@
 	</div>
 
 	<div class="questioncontainer" style="height:15vh;">
-		<h1 style="text-align:center;font-size:2em">@Model.question</h1>
+		<h1 style="text-align:center;font-size:2em">@HttpUtility.HtmlDecode(Model.question)</h1>
 	</div>
 
 	<div class="answerscontainer" style="height:60vh;">
@@ -18,7 +20,7 @@
 			@foreach (var answer in Model.answers)
 			{
 				<div>
-					<a asp-controller="Trivia" asp-action="CheckAnswer" asp-route-answer=@answer class="btn TriviaButton answerbutton">@answer</a>
+					<a asp-controller="Trivia" asp-action="CheckAnswer" asp-route-answer=@answer class="btn TriviaButton answerbutton">@HttpUtility.HtmlDecode(answer)</a>
 				</div>
 			}
 		</ul>

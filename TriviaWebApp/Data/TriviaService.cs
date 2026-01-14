@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
-using System.Net.Http.Json;
+﻿using Newtonsoft.Json;
 using TriviaWebApp.Models;
 
 namespace TriviaWebApp.Data
@@ -14,6 +12,8 @@ namespace TriviaWebApp.Data
             _httpClient = httpClient;
         }
 
+        //makes a request to the trivia api to reset the questions with the desired difficulty
+        //(Options: Easy, Medium, Hard, Any)
         public async Task ResetTrivia(string difficulty)
         {
             HttpResponseMessage getData = await _httpClient.PostAsJsonAsync("ResetTrivia", new { Answer = difficulty});
@@ -28,14 +28,15 @@ namespace TriviaWebApp.Data
             }
         }
 
-        public async Task<Question> GetQuestion()
+        //Makes a request to the API to get the current trivia question
+        public async Task<APIQuestion> GetQuestion()
         {
             HttpResponseMessage getData = await _httpClient.GetAsync("GetQuestion");
 
             if (getData.IsSuccessStatusCode)
             {
                 string result = getData.Content.ReadAsStringAsync().Result;
-                return JsonConvert.DeserializeObject<Question>(result);
+                return JsonConvert.DeserializeObject<APIQuestion>(result);
             }
             else
             {
@@ -43,6 +44,8 @@ namespace TriviaWebApp.Data
             }
         }
 
+        //makes a request to the API to check if the provided answer is correct 
+        //and returns a response with the result and the current score for the player
         public async Task<APIResponse> CheckAnswer(string answer)
         {
             string responseString = "";

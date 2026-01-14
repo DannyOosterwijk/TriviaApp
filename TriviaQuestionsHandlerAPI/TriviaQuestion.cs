@@ -1,8 +1,6 @@
 ﻿namespace TriviaQuestionsHandlerAPI
 {
-    public record CheckAnswerRequest(string Answer);
-
-    public class TriviaQuestion
+    public class OpenTriviaAPIQuestion
     {
         public string? type {  get; set; }
         public string? difficulty { get; set; }
@@ -13,9 +11,9 @@
 
     }
 
-    public class Question
+    public class TriviaQuestion
     {
-        public Question(TriviaQuestion? trivia = null)
+        public TriviaQuestion(OpenTriviaAPIQuestion? trivia = null)
         {
             if(trivia != null)
             {
@@ -25,6 +23,7 @@
                 this.question = trivia.question;
 
                 //Get both correct and incorrect answers from the trivia question and randomize them
+                //Make an array for all answers
                 int amountOfAnswers = trivia.incorrect_answers.Length + 1;
                 answers = new string[amountOfAnswers];
                 

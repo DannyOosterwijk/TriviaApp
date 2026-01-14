@@ -1,6 +1,6 @@
 ﻿namespace TriviaWebApp.Models
 {
-    public class Question
+    public class APIQuestion
     {
         public string? type { get; set; }
         public string? difficulty { get; set; }
