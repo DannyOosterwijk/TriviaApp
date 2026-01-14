@@ -16,7 +16,7 @@ namespace TriviaWebApp.Data
         //(Options: Easy, Medium, Hard, Any)
         public async Task ResetTrivia(string difficulty)
         {
-            HttpResponseMessage getData = await _httpClient.PostAsJsonAsync("ResetTrivia", new { Answer = difficulty});
+            HttpResponseMessage getData = await _httpClient.PostAsJsonAsync("ResetTrivia", new { Difficulty = difficulty});
 
             if (getData.IsSuccessStatusCode) 
             {
@@ -29,14 +29,14 @@ namespace TriviaWebApp.Data
         }
 
         //Makes a request to the API to get the current trivia question
-        public async Task<APIQuestion> GetQuestion()
+        public async Task<TriviaQuestion> GetQuestion()
         {
             HttpResponseMessage getData = await _httpClient.GetAsync("GetQuestion");
 
             if (getData.IsSuccessStatusCode)
             {
                 string result = getData.Content.ReadAsStringAsync().Result;
-                return JsonConvert.DeserializeObject<APIQuestion>(result);
+                return JsonConvert.DeserializeObject<TriviaQuestion>(result);
             }
             else
             {
@@ -46,7 +46,7 @@ namespace TriviaWebApp.Data
 
         //makes a request to the API to check if the provided answer is correct 
         //and returns a response with the result and the current score for the player
-        public async Task<APIResponse> CheckAnswer(string answer)
+        public async Task<TriviaResponse> CheckAnswer(string answer)
         {
             string responseString = "";
             HttpResponseMessage getData = await _httpClient.PostAsJsonAsync("CheckAnswer", new { Answer = answer });
@@ -55,7 +55,7 @@ namespace TriviaWebApp.Data
                 try
                 {
                     responseString = getData.Content.ReadAsStringAsync().Result;
-                    return JsonConvert.DeserializeObject<APIResponse>(responseString);
+                    return JsonConvert.DeserializeObject<TriviaResponse>(responseString);
                 }
                 catch (Exception ex) 
                 {

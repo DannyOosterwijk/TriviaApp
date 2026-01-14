@@ -1,26 +1,15 @@
-﻿namespace TriviaQuestionsHandlerAPI
+﻿namespace TriviaQuestionsHandlerAPI.Models
 {
-    public class OpenTriviaAPIQuestion
-    {
-        public string? type {  get; set; }
-        public string? difficulty { get; set; }
-        public string? category { get; set; }
-        public string? question { get; set; }
-        public string? correct_answer { get; set; }
-        public string[]? incorrect_answers { get; set; }
-
-    }
-
     public class TriviaQuestion
     {
         public TriviaQuestion(OpenTriviaAPIQuestion? trivia = null)
         {
             if(trivia != null)
             {
-                this.type = trivia.type;
-                this.difficulty = trivia.difficulty;
-                this.category = trivia.category;
-                this.question = trivia.question;
+                type = trivia.type;
+                difficulty = trivia.difficulty;
+                category = trivia.category;
+                question = trivia.question;
 
                 //Get both correct and incorrect answers from the trivia question and randomize them
                 //Make an array for all answers
@@ -53,13 +42,5 @@
         public string? question { get; set; }
         public string[]? answers { get; set; }
 
-    }
-
-    public class APIResponse
-    {
-        public string? QuestionResult {  get; set; }
-        public int QuestionAmount { get; set; }
-        public int CurrentQuestion { get; set; }
-        public int QuestionsCorrect { get; set; }
     }
 }

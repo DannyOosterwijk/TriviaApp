@@ -1,6 +1,6 @@
-﻿namespace TriviaQuestionsHandlerAPI
+﻿namespace TriviaQuestionsHandlerAPI.Models
 {
-    public class OpenTriviaResponse
+    public class OpenTriviaAPIResponse
     {
         public string? response_code { get; set; }
         public OpenTriviaAPIQuestion[]? results { get; set; }

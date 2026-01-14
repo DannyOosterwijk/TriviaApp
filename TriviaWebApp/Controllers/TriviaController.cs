@@ -36,7 +36,7 @@ namespace TriviaWebApp.Controllers
         //Trivia page where the trivia question is shown and the player selects an answer
         public async Task<IActionResult> Trivia()
         {
-            APIQuestion currentQuestion;
+            TriviaQuestion currentQuestion;
 
             try
             {
@@ -68,7 +68,7 @@ namespace TriviaWebApp.Controllers
         }
 
         //Show if the player's answer was correct and hoow manny questions they have wrong and correct
-        public IActionResult ShowAnswer(APIResponse answer)
+        public IActionResult ShowAnswer(TriviaResponse answer)
         {
             return View(answer);
         }

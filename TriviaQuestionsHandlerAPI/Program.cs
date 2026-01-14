@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using TriviaQuestionsHandlerAPI;
+using TriviaQuestionsHandlerAPI.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
@@ -10,7 +10,7 @@ string url = URLGenerator.GenerateURL();
 HttpClient client = new HttpClient();
 
 string response = await client.GetStringAsync(url);
-OpenTriviaResponse triviaResponse = JsonConvert.DeserializeObject<OpenTriviaResponse>(response);
+OpenTriviaAPIResponse triviaResponse = JsonConvert.DeserializeObject<OpenTriviaAPIResponse>(response);
 
 OpenTriviaAPIQuestion CurrentQuestion;
 int CurrentQuestionIndex = 0;
@@ -22,7 +22,7 @@ app.MapPost("/ResetTrivia", async (ResetTriviaRequest req) =>
     //Generate a string which includes the parameters for the open trivia api
     response = await client.GetStringAsync(URLGenerator.GenerateURL(difficulty:URLGenerator.StringToDifficulty(req.Difficulty)));
     //get a new list of questions from the open trivia api
-    triviaResponse = JsonConvert.DeserializeObject<OpenTriviaResponse>(response);
+    triviaResponse = JsonConvert.DeserializeObject<OpenTriviaAPIResponse>(response);
 
     //set default values to keep track of which question the player is on
     CurrentQuestionIndex = 0;
@@ -55,7 +55,7 @@ app.MapGet("/GetQuestion", () =>
 //returns if the answer is correct and statistics of the current list of questions
 app.MapPost("/CheckAnswer", (CheckAnswerRequest req) =>
 {
-    APIResponse response = new APIResponse();
+    TriviaResponse response = new TriviaResponse();
     //check if the current index is inside of the list of questions
     if(CurrentQuestionIndex < triviaResponse.results.Length)
     {

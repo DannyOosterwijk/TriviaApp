@@ -1,4 +1,4 @@
-﻿namespace TriviaQuestionsHandlerAPI
+﻿namespace TriviaQuestionsHandlerAPI.Models
 {
     public static class URLGenerator
     {
@@ -31,13 +31,13 @@
             switch (difficulty)
             {
                 case "Easy":
-                    return URLGenerator.Difficulty.easy;
+                    return Difficulty.easy;
                 case "Medium":
-                    return URLGenerator.Difficulty.medium;
+                    return Difficulty.medium;
                 case "Hard":
-                    return URLGenerator.Difficulty.hard;
+                    return Difficulty.hard;
                 default:
-                    return URLGenerator.Difficulty.any;
+                    return Difficulty.any;
             }
         }
         public enum Category
