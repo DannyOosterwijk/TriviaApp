@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36717.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriviaWebApp", "TriviaWebApp\TriviaWebApp.csproj", "{18CECE9A-2FA6-414D-90B2-47FAC80CA27C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriviaHandlerAPI", "TriviaHandlerAPI\TriviaHandlerAPI.csproj", "{8E749E82-D758-6AC8-76D6-085A622D5163}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18CECE9A-2FA6-414D-90B2-47FAC80CA27C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18CECE9A-2FA6-414D-90B2-47FAC80CA27C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18CECE9A-2FA6-414D-90B2-47FAC80CA27C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18CECE9A-2FA6-414D-90B2-47FAC80CA27C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E749E82-D758-6AC8-76D6-085A622D5163}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E749E82-D758-6AC8-76D6-085A622D5163}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E749E82-D758-6AC8-76D6-085A622D5163}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E749E82-D758-6AC8-76D6-085A622D5163}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC77135F-3E85-4C49-9F9B-4F61E90B4AEF}
+	EndGlobalSection
+EndGlobal
