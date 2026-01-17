@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\GitProjects\\Software\\DotnetCore\\TriviaApp\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{18CECE9A-2FA6-414D-90B2-47FAC80CA27C}|TriviaWebApp\\TriviaWebApp.csproj|d:\\gitprojects\\software\\dotnetcore\\triviaapp\\triviawebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18CECE9A-2FA6-414D-90B2-47FAC80CA27C}|TriviaWebApp\\TriviaWebApp.csproj|solutionrelative:triviawebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,8 +14,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\GitProjects\\Software\\DotnetCore\\TriviaApp\\TriviaWebApp\\Program.cs",
+              "RelativeDocumentMoniker": "TriviaWebApp\\Program.cs",
+              "ToolTip": "D:\\GitProjects\\Software\\DotnetCore\\TriviaApp\\TriviaWebApp\\Program.cs",
+              "RelativeToolTip": "TriviaWebApp\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-17T15:28:14.165Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
