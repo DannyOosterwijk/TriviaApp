@@ -28,13 +28,13 @@
 
         public static Difficulty StringToDifficulty (string difficulty)
         {
-            switch (difficulty)
+            switch (difficulty.ToLower())
             {
-                case "Easy":
+                case "easy":
                     return Difficulty.easy;
-                case "Medium":
+                case "medium":
                     return Difficulty.medium;
-                case "Hard":
+                case "hard":
                     return Difficulty.hard;
                 default:
                     return Difficulty.any;
